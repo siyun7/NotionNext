@@ -20,6 +20,7 @@ import { GlobalContextProvider } from '@/lib/global'
 import { DebugPanel } from '@/components/DebugPanel'
 import { ThemeSwitch } from '@/components/ThemeSwitch'
 import { Fireworks } from '@/components/Fireworks'
+import { Analytics } from '@vercel/analytics/react'
 
 const Ackee = dynamic(() => import('@/components/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('@/components/Gtag'), { ssr: false })
@@ -50,6 +51,7 @@ const MyApp = ({ Component, pageProps }) => {
             <link rel="stylesheet" href={BLOG.FONT_AWESOME_PATH} referrerPolicy="no-referrer" />
             {externalPlugins}
             <Component {...pageProps} />
+            <Analytics />
         </GlobalContextProvider>
   )
 }
